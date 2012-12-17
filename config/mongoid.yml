@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: chat_api_develop
+      hosts:
+        - localhost:27017
