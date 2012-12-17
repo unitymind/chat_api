@@ -4,3 +4,10 @@ development:
       database: chat_api_develop
       hosts:
         - localhost:27017
+
+test:
+  sessions:
+    default:
+      database: chat_api_test
+      hosts:
+        - localhost:27017
