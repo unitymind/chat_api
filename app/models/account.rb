@@ -3,6 +3,9 @@ class Account
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
+
+  after_create :create_user
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable, :timeoutable
@@ -41,4 +44,12 @@ class Account
 
   ## Token authenticatable
   field :authentication_token, :type => String
+
+  has_one :user
+
+  protected
+  def create_user
+    base_nickname = /^(.+)@/.match(email)[1]
+    User.create!(email: email, nickname: base_nickname, account: self)
+  end
 end

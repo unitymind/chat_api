@@ -6,6 +6,7 @@ describe User do
 
   it { should have_and_belong_to_many(:inbound_conversations).of_type(Conversation).as_inverse_of(:recipients).with_index }
   it { should have_many(:outbound_conversations).of_type(Conversation).as_inverse_of(:author).with_foreign_key(:author_id) }
+  it { should belong_to(:account).of_type(Account).with_foreign_key(:account_id).with_index }
 
   it { should validate_presence_of (:nickname) }
   it { should validate_presence_of (:email) }

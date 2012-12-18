@@ -6,6 +6,7 @@ class User
 
   has_many :outbound_conversations, class_name: "Conversation", inverse_of: :author
   has_and_belongs_to_many :inbound_conversations, class_name: "Conversation", inverse_of: :recipients, index: true
+  belongs_to :account, index: true
 
   validates_presence_of :nickname, :email
   validates_uniqueness_of :email, case_sensitive: false
