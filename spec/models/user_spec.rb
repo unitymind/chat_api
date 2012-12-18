@@ -16,14 +16,13 @@ describe User do
   context 'geolocation' do
     include_context "shared models context"
 
-    it 'should include only users in desired radius in meters' do
+    it "should include only users in desired radius (in meters) from location's center point" do
       location = [37.615482, 55.756213] # Ohotnyi ryad
 
       nearest_users = User.in_radius(location, 1500).to_a
       nearest_users.should be_include @user_1
       nearest_users.should be_include @user_2
       nearest_users.should be_include @user_3
-
       nearest_users.should_not be_include @user_4
 
       nearest_users = User.in_radius(location, 30000).to_a

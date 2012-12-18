@@ -1,7 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require "rails"
-
+require "action_mailer/railtie"
+require "action_controller/railtie"
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -63,5 +64,16 @@ module ChatApi
       g.test_framework      :rspec, fixture: true
       g.fixture_replacement :fabrication
     end
+
+    config.action_mailer.smtp_settings = {
+        :address              => 'smtp.example.com',
+        :port                 => '25',
+        :domain               => 'gmail.com',
+        :user_name            => 'unitymind.apps@gmail.com',
+        :password             => 'J79TXFA64N7CUuo2x62Q9VsxK32wHn',
+        :authentication       => 'plain',
+        :enable_starttls_auto => true,
+        :openssl_verify_mode  => OpenSSL::SSL::VERIFY_NONE,
+    }
   end
 end
