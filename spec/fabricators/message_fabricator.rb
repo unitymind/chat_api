@@ -1,3 +1,3 @@
-Fabricator(:message) do
-  text { Faker::Lorem.words }
+Fabricator(:message, class_name: ChatApi::Message) do
+  text { Faker::Lorem.sentence }
 end

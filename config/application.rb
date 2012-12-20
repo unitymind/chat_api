@@ -17,7 +17,9 @@ module ChatApi
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -64,16 +66,5 @@ module ChatApi
       g.test_framework      :rspec, fixture: true
       g.fixture_replacement :fabrication
     end
-
-    config.action_mailer.smtp_settings = {
-        :address              => 'smtp.example.com',
-        :port                 => '25',
-        :domain               => 'gmail.com',
-        :user_name            => 'unitymind.apps@gmail.com',
-        :password             => 'J79TXFA64N7CUuo2x62Q9VsxK32wHn',
-        :authentication       => 'plain',
-        :enable_starttls_auto => true,
-        :openssl_verify_mode  => OpenSSL::SSL::VERIFY_NONE,
-    }
   end
 end

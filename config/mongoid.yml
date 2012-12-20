@@ -4,6 +4,8 @@ development:
       database: chat_api_develop
       hosts:
         - localhost:27017
+  options:
+    raise_not_found_error: false
 
 test:
   sessions:
@@ -11,3 +13,5 @@ test:
       database: chat_api_test
       hosts:
         - localhost:27017
+  options:
+    raise_not_found_error: false

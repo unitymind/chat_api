@@ -5,6 +5,7 @@ gem "jquery-rails", "~> 2.1.4"
 gem "mongoid", "~> 3.0.14"
 gem "devise", "~> 2.1.2"
 gem "grape", "~> 0.2.2"
+# gem "geo_calc", "~> 0.7.7.1"
 
 group :test, :development do
   gem "rspec-rails", "~> 2.12.0"
