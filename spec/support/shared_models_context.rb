@@ -7,6 +7,6 @@ shared_context "shared models context" do
   end
 
   before(:each) do
-    @conversation = ChatApi::Conversation.create(author: @user_1, recipients: [@user_2, @user_3])
+    @conversation = ChatApi::Mongoid::Conversation.create(author: @user_1, recipients: [@user_2, @user_3])
   end
 end

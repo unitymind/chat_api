@@ -1,13 +1,13 @@
 require "spec_helper"
 
-describe ChatApi::Message do
+describe ChatApi::Mongoid::Message do
   it { should be_timestamped_document.with(:created) }
   it { should_not be_timestamped_document.with(:updated) }
 
   it { should have_field(:text).of_type(String) }
 
-  it { should be_embedded_in(:conversation).of_type(ChatApi::Conversation) }
-  it { should belong_to(:author).of_type(ChatApi::User).with_foreign_key(:author_id) }
+  it { should be_embedded_in(:conversation).of_type(ChatApi::Mongoid::Conversation) }
+  it { should belong_to(:author).of_type(ChatApi::Mongoid::User).with_foreign_key(:author_id) }
 
   it { should validate_presence_of (:text) }
 

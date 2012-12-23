@@ -4,7 +4,7 @@ module ChatApi
 
     helpers do
       def current_user
-        @current_user ||= ChatApi::Account.authorize!(params)
+        @current_user ||= ChatApi::Mongoid::Account.authorize!(params)
       end
 
       def authenticate!
@@ -36,7 +36,7 @@ module ChatApi
         email = params[:email]
         password = params[:password]
 
-        account = ChatApi::Account.find_by_email(email)
+        account = ChatApi::Mongoid::Account.find_by_email(email)
 
         error!({ error: 'Invalid email or password.'}, 401) if account.nil?
 
@@ -53,7 +53,7 @@ module ChatApi
       end
 
       delete :logout do
-        account = ChatApi::Account.find_by_token(params[:auth_token])
+        account = ChatApi::Mongoid::Account.find_by_token(params[:auth_token])
 
         error!({ error: 'Invalid token.'}, 404) if account.nil?
 
@@ -74,7 +74,7 @@ module ChatApi
         requires :radius, :type => Integer, :desc => 'Search radius in meters'
       end
       get :find_nearest do
-        users = (ChatApi::User.in_radius(current_user.location, params['radius']).to_a - [current_user])
+        users = (ChatApi::Mongoid::User.in_radius(current_user.location, params['radius']).to_a - [current_user])
         present users, with: ChatApi::Entities::User
       end
 
@@ -106,7 +106,7 @@ module ChatApi
           error!({ error: 'Conversation not found.'}, 500) if conversation.nil?
           error!({ error: 'Empty messages not allowed.'}, 500) if params[:text].strip.size == 0
 
-          message = ChatApi::Message.new(author: current_user, text: params[:text].strip)
+          message = ChatApi::Mongoid::Message.new(author: current_user, text: params[:text].strip)
           conversation.messages << message
           present message, with: ChatApi::Entities::Message, brief: true
         end

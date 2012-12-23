@@ -32,6 +32,7 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v3.2.2, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.2.0, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.4.0, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="couchbase (v1.2.0, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v0.9.1, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="descendants_tracker (v0.0.1, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v2.1.2, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
@@ -85,6 +86,7 @@
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v1.3.0, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="virtus (v0.5.3, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.1, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yaji (v0.3.3, RVM: ruby-1.9.3-p327 [chat_api]) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

@@ -160,22 +160,22 @@ describe ChatApi::Endpoints do
     context 'conversations' do
       before(:each) do
         # Strange bug with using Fabricate(:conversation) then assign recipients as Array [User]
-        @conversation_1 = ChatApi::Conversation.new()
+        @conversation_1 = ChatApi::Mongoid::Conversation.new()
         @conversation_1.author = @account.user
         @conversation_1.recipient_ids = [@account_1.user.id, @account_2.user.id]
         @conversation_1.save
 
-        @conversation_2 = ChatApi::Conversation.new()
+        @conversation_2 = ChatApi::Mongoid::Conversation.new()
         @conversation_2.author = @account_1.user
         @conversation_2.recipient_ids = [@account.user.id, @account_2.user.id, @account_3.user.id]
         @conversation_2.save
 
-        @conversation_3 = ChatApi::Conversation.new()
+        @conversation_3 = ChatApi::Mongoid::Conversation.new()
         @conversation_3.author = @account_2.user
         @conversation_3.recipient_ids = [@account.user.id]
         @conversation_3.save
 
-        @conversation_4 = ChatApi::Conversation.new()
+        @conversation_4 = ChatApi::Mongoid::Conversation.new()
         @conversation_4.author = @account_1.user
         @conversation_4.recipient_ids = [@account_2.user.id, @account_3.user.id, @account_4.user.id]
         @conversation_4.save
